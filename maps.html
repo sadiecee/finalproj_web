@@ -5,6 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://js.arcgis.com/4.21/esri/themes/light/main.css">
+
+    <script src="https://js.arcgis.com/4.21/"></script>
+
+    <script>
+
+      require([
+        "esri/Map",
+        "esri/views/MapView",
+        "esri/layers/FeatureLayer",
+        "esri/widgets/TimeSlider",
+        "esri/widgets/Expand",
+        "esri/widgets/Legend"
+      ], (Map, MapView, FeatureLayer, TimeSlider, Expand, Legend) => {
+        const layer = new FeatureLayer({
+          url: "https://services5.arcgis.com/FKwcDz27wRAj4HUT/arcgis/rest/services/NIBRS_2018_COUNT_EXPORT/FeatureServer/42",
+          container: "viewDiv"
+        });
+        // const after = new FeatureLayer({
+        //   url: "https://services5.arcgis.com/FKwcDz27wRAj4HUT/arcgis/rest/services/NIBRS_2018_COUNT_EXPORT/FeatureServer/42",
+        //   maxScale: 3000
+        // });
+        // map.add(after);
+      });
+</script>
+
   </head>
   <body>
     <section class="sub-header">
@@ -12,12 +38,12 @@
         <div class="nav-links" id="navLinks">
           <i class="fa fa-times" onclick="hideMenu()"></i>
           <ul>
-            <li><a href="About.html">HOME</a></li>
-            <li><a href="">MAP</a></li>
-            <li><a href="">DATA SOURCES</a></li>
-            <li><a href="">METHODS</a></li>
-            <li><a href="">REFERENCES AND ACKNOWLEDGEMENTS</a></li>
-            <li><a href="">CONTACT US</a></li>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="map.html">MAP</a></li>
+            <li><a href="data.html">DATA SOURCES</a></li>
+            <li><a href="methods.html">METHODS</a></li>
+            <li><a href="ref.html">REFERENCES AND ACKNOWLEDGEMENTS</a></li>
+            <li><a href="About.html">CONTACT US</a></li>
           </ul>
         </div>
         <i class="fa fa-bars" onclick="showMenu()"></i>
@@ -29,14 +55,14 @@
     <section class="map">
       <h1>Placeholder for Map title</h1>
       <p>Placeholder Analysis of maps.</p>
-      <div class="stateMap">
-      </div>
+      <div id="viewDiv"></div>
     </section>
 
-    
+
 
 <!----------Javascript for Toggle Menu---------------->
     <script>
+
 
       var navLinks = document.getElementById("navLinks");
 
