@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Metadata is contained in this element-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body>
+    <section class="sub-header">
+      <nav>
+        <div class="nav-links" id="navLinks">
+          <i class="fa fa-times" onclick="hideMenu()"></i>
+          <ul>
+            <li><a href="About.html">HOME</a></li>
+            <li><a href="">MAP</a></li>
+            <li><a href="">DATA SOURCES</a></li>
+            <li><a href="">METHODS</a></li>
+            <li><a href="">REFERENCES AND ACKNOWLEDGEMENTS</a></li>
+            <li><a href="">CONTACT US</a></li>
+          </ul>
+        </div>
+        <i class="fa fa-bars" onclick="showMenu()"></i>
+      </nav>
+      <h1>Our Maps</h1>
+    </section>
+    <!----------About us content ---------------->
+
+    <section class="sources">
+      <h1>Placeholder for Data Sources</h1>
+      <p>Placeholder text on data sources.</p>
+    </section>
+
+
+
+<!----------Javascript for Toggle Menu---------------->
+    <script>
+
+      var navLinks = document.getElementById("navLinks");
+
+      function showMenu(){
+        navLinks.style.right = "0";
+      }
+      function hideMenu(){
+        navLinks.style.right = "200";
+      }
+
+    </script>
+
+  </body>
+</html>
