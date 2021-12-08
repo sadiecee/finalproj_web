@@ -204,6 +204,17 @@ h3{
   padding: 100px 0;
   border-radius: 10px;
 }
+
+.analysis{
+  width: 80%;
+  margin: 100px auto;
+  background-position: center;
+  background-size: 10px;
+  text-align: center;
+  padding: 100px 0;
+  border-radius: 10px;
+}
+
 /*================about page ============*/
 .sub-header{
   height: 50vh;

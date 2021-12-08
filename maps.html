@@ -2,14 +2,101 @@
 <html>
   <head>
     <!-- Metadata is contained in this element-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://js.arcgis.com/4.21/esri/themes/light/main.css">
 
     <script src="https://js.arcgis.com/4.21/"></script>
+    <style>
+      html,
+      body,
+      #viewDiv {
+        padding: 0;
+        margin: 0;
+        height: 130%;
+        width: 90%;
+      }
+    </style>
 
     <script>
+      require([
+        "esri/Map",
+        "esri/views/MapView",
+        "esri/layers/FeatureLayer",
+        "esri/widgets/LayerList",
+        "esri/widgets/Swipe",
+        "esri/widgets/Expand",
+        "esri/layers/TileLayer",
+      ], (Map, MapView, FeatureLayer, LayerList, Swipe, Expand, TileLayer) => {
+        const map = new Map({
+          //basemap: "arcgis-dark-gray",
+          zoom: 8,
+          center: [39.8097, -98.555183], // Lebanon where the explosion happened
+
+        });
+
+
+                const l1 = new FeatureLayer({
+                  url: "https://services5.arcgis.com/FKwcDz27wRAj4HUT/arcgis/rest/services/NIBRS/FeatureServer",
+                  //maxScale: 3000
+                });
+                map.add(l1); //here we call the imagery for before the explosion from the ArcGIS tiles cloud
+
+                const l2 = new FeatureLayer({
+                  url: "https://services5.arcgis.com/FKwcDz27wRAj4HUT/arcgis/rest/services/NIBRS_27/FeatureServer",
+                  //maxScale: 3000
+                });
+                map.add(l2); //here we call the imagery for the after the explosion from the ArcGIS tiles cloud
+
+                const l3 = new FeatureLayer({
+                  url: "https://services5.arcgis.com/FKwcDz27wRAj4HUT/arcgis/rest/services/NIBRS_32/FeatureServer",
+                  //maxScale: 3000
+                });
+                map.add(l3); //here we call the imagery for the after the explosion from the ArcGIS tiles cloud
+
+                const view = new MapView({
+                  container: "viewDiv",
+                  map: map,
+                  zoom: 8,
+                  center: [39.8097, -98.555183], // Lebanon where the explosion happened
+                }); //here we create a new map view specifying the initial zoom as well as the min and max zoom
+                // I adapted these parameters based on the properties of the imagery
+
+                // here we create a layerlist and expand widget and add to the view
+                const layerList = new LayerList({
+                  view: view,
+                  zoom: 8,
+                  center: [39.8097, -98.555183], // Lebanon where the explosion happened
+
+                });
+
+                const llExpand = new Expand({
+                  view: view,
+                  content: layerList,
+                  expanded: false
+                });
+                view.ui.add(llExpand, "top-right");
+
+                // here we create a new Swipe widget
+                // const swipe = new Swipe({
+                //   leadingLayers: [after],
+                //   trailingLayers: [before],
+                //   position: 50, // set position of widget to 50% so it's right in the middle of the screen
+                //   view: view
+                // });
+                //
+                // // here we add the widget to the view
+                // view.ui.add(swipe);
+              });
+            </script>
+
+
+    <!-- <script>
 
       require([
         "esri/Map",
@@ -17,12 +104,31 @@
         "esri/layers/FeatureLayer",
         "esri/widgets/TimeSlider",
         "esri/widgets/Expand",
-        "esri/widgets/Legend"
-      ], (Map, MapView, FeatureLayer, TimeSlider, Expand, Legend) => {
-        const layer = new FeatureLayer({
-          url: "https://services5.arcgis.com/FKwcDz27wRAj4HUT/arcgis/rest/services/NIBRS_2018_COUNT_EXPORT/FeatureServer/42",
-          container: "viewDiv"
+        "esri/widgets/Legend",
+        "esri/layers/TileLayer",
+        "esri/widgets/LayerList",
+        "esri/widgets/Swipe"
+      ], (Map, MapView, FeatureLayer, TimeSlider, Expand, Legend, TileLayer, LayerList, Swipe) => {
+        const map = new Map({
+          basemap: "satellite"
         });
+
+        const view = MapView({
+          container: "viewDiv",
+          map: map,
+          zoom: 16,
+          center: [35.51757428008902, 33.9000033914657], // longitude, latitude of the port of Beirut, Lebanon where the explosion happened
+          constraints: {
+            maxZoom: 23,
+            minZoom: 0
+          }
+        }); //here we create a new map view specifying the initial zoom as well as the min and max zoom
+
+
+        // const layer = new FeatureLayer({
+        //   url: "https://services5.arcgis.com/FKwcDz27wRAj4HUT/arcgis/rest/services/NIBRS_2018_COUNT_EXPORT/FeatureServer/42",
+        //   container: "viewDiv"
+        // });
         // const after = new FeatureLayer({
         //   url: "https://services5.arcgis.com/FKwcDz27wRAj4HUT/arcgis/rest/services/NIBRS_2018_COUNT_EXPORT/FeatureServer/42",
         //   maxScale: 3000
@@ -30,7 +136,7 @@
         // map.add(after);
       });
 </script>
-
+ -->
   </head>
   <body>
     <section class="sub-header">
@@ -49,18 +155,20 @@
         <i class="fa fa-bars" onclick="showMenu()"></i>
       </nav>
       <h1>Our Maps</h1>
+          <div id="viewDiv"></div>
     </section>
-    <!----------About us content ---------------->
+    <!---About us content ---------------->
 
-    <section class="map">
+<div>
+    <section class="analysis">
       <h1>Placeholder for Map title</h1>
       <p>Placeholder Analysis of maps.</p>
-      <div id="viewDiv"></div>
     </section>
+  </div>
 
 
 
-<!----------Javascript for Toggle Menu---------------->
+<!---Javascript for Toggle Menu---------------->
     <script>
 
 
