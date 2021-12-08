@@ -171,8 +171,29 @@ h3{
   box-shadow: 0 0 20px 0px rgba(0,0,0,0.2);
 
 }
+
+.about-col{
+  margin-top: 5%;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.about-row{
+  flex-basis: 46%;
+  background: #fff3f3;
+  border-radius: 10px;
+  margin-bottom: 5%;
+  padding: 20px 12px;
+  box-sizing: border-box;
+  transition: 0.5s
+}
+
 @media(max-width: 700px){
   .row{
+    flex-direction: column;
+  }
+  .about-col{
     flex-direction: column;
   }
   .cta h1{
