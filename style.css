@@ -143,6 +143,7 @@ nav .fa{
 h1{
   font-size: 36px;
   font-weight: 600;
+  position: center;
 }
 
 p{
@@ -166,7 +167,6 @@ p{
 }
 
 .row{
-  margin-top: 5%;
   display: flex;
   justify-content: space-between;
 }
@@ -175,10 +175,11 @@ p{
   flex-basis: 31%;
   background: #fff3f3;
   border-radius: 10px;
-  margin-bottom: 5%;
+  margin: 25px;
   padding: 20px 12px;
   box-sizing: border-box;
-  transition: 0.5s
+  transition: 0.5s;
+  text-align: center;
 }
 
 h3{

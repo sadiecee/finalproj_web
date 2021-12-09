@@ -32,8 +32,12 @@
         race, ethnicity, age, sex), weapon, circumstances, and most importantly the
         relationship between the victim and the offender. Due to the lack of data
         exclusively about intimate partner violence at the national level, we
-        relied on a subset of NIBRS data for our analysis.</p>
-      </br>
+        relied on a subset of NIBRS data for our analysis. A limitation of the NIBRS data
+        is that incidents are reported on a voluntary basis by law enforcement offices across
+        the country which leads to significant gaps in the availability of the data. States
+        such as New York, Florida, and California do not report incidents to NIBRS at all
+        and some states started doing sp only in 2019.
+      </p>
       </br>
       <h2 style="text-align: left; padding-left: 25px">Methodology</h2>
       <p style="text-align: left; padding-left: 25px">This project relied on a multitude
@@ -41,21 +45,22 @@
         and HTML. Below you can find a general outline of the three main steps we used to conduct
         our analysis and produce this web application.
       </p>
-    </section>
-
+    </br>
+</section>
+</br>
     <section class="methods">
         <div class="row">
           <div class="row-method">
-            <h1>Data Processing: Python</h1>
+            <h2>Python</h2>
             <p>We built a script using Python that allowed us to extract all incidents between
             2006 and 2019 where the victim and the offender were or had been intimate partners.
             This corresponded to three relationship IDs: (3) boyfriend/girlfriend, (21) spouse,
             and (26) ex-spouse. We then subset the data even further to focus exclusively on
-            incidents of three offence IDs: (51) simple assault, (27) aggravated assault, and
+            incidents of three offense IDs: (51) simple assault, (27) aggravated assault, and
             (32) homicide and nonnegligent manslaughter.</p>
           </div>
           <div class="row-method">
-            <h1>ArcGIS Pro and JavaScript API</h1>
+            <h1>ArcGIS</h1>
             <p>Here's a description of the data visualization we did in Arc.</p>
           </div>
           <div class="row-method">
