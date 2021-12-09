@@ -51,21 +51,32 @@
     <section class="methods">
         <div class="row">
           <div class="row-method">
-            <h2>Python</h2>
-            <p>We built a script using Python that allowed us to extract all incidents between
+            <h2 style="color: #000000">Python</h2>
+            <p>We built a Python script that allowed us to extract all incidents between
             2006 and 2019 where the victim and the offender were or had been intimate partners.
             This corresponded to three relationship IDs: (3) boyfriend/girlfriend, (21) spouse,
             and (26) ex-spouse. We then subset the data even further to focus exclusively on
             incidents of three offense IDs: (51) simple assault, (27) aggravated assault, and
-            (32) homicide and nonnegligent manslaughter.</p>
+            (32) homicide and nonnegligent manslaughter. In order to map the incidents we
+            used FIPS codes as geographic references to map the incidents at the county level.
+            This was the smallest possible unit of analysis using NIBRS data. We then exported the subset into csv
+            files corresponding to each year between 2006 and 2019.</p>
           </div>
           <div class="row-method">
-            <h1>ArcGIS</h1>
-            <p>Here's a description of the data visualization we did in Arc.</p>
+            <h2 style="color: #000000">ArcGIS</h2>
+            <p>This project relied heavily on ESRI products, particularly ArcGIS Pro, ArcGIS Online,
+            and the ArcGIS JavaScript API. Once we were done with the data processing in Python, we
+            imported the data into ArcGIS Pro and used the FIPS codes to join it to a shpaefile of
+            all US counties. We exported the joined layers as Web Layers onto ArcGIS Online. We then
+            incorporated all layers into our web application using the ArcGIS JavaScript API which
+            also allowed us to incorporate a series of widgets into our web map.</p>
           </div>
           <div class="row-method">
-            <h1>HTML</h1>
-            <p>Here's an overview of what we did for the website.</p>
+            <h2 style="color: #000000">HTML</h2>
+            <p>We built this web application using html and css styling. We aimed
+               for a minimalist style that clearly communicated our message. We relied on the
+            ArcGIS JavaScript API for all map related functionality as well as some local
+            JavaScript for the website's functionality.</p>
           </div>
         </div>
 
