@@ -49,7 +49,7 @@ a:hover{
   content: '';
   width: 0%;
   height: 2px;
-  background: #f44336;
+  background: #79328C;
   display: block;
   margin: auto;
   transition: 0.5s;
@@ -81,10 +81,10 @@ a:hover{
 .hero-btn{
   display: inline-block;
   text-decoration: none;
-  border: 1px solid #65cfae;
+  border: 1px solid #79328C;
   padding: 12px 34px;
   font-size: 17px;
-  background: #65cfae;
+  background: #79328C;
   position: relative;
   cursor: pointer;
 
@@ -93,7 +93,8 @@ a:hover{
 .hero-btn:hover{
   border: 1px solid #59c2a2;
   background: #59c2a2;
-  transition: 1s
+  transition: 1s;
+  text-decoration: none;
 }
 
 nav .fa{
@@ -109,7 +110,7 @@ nav .fa{
   }
   .nav-links{
     position: absolute;
-    background: #f44336;
+    background: #79328C;
     height: 100vh;
     width: 200px;
     top: 0;
@@ -152,8 +153,16 @@ p{
   padding: 10px;
 }
 
-.statemap{
+#wordswords {
+  font-size: 14px;
+  color: #777;
+  margin: 0px 5px 10px 5px;
+}
 
+#viewDiv {
+  margin: 0px 5px 10px 5px;
+  height: 160%;
+  width: 99%;
 }
 
 .row{
@@ -176,6 +185,11 @@ h3{
   text-align: center;
   font-weight: 600;
   margin: 10px 0;
+}
+
+h2{
+  text-align: center;
+  color: #79328C;
 }
 
 .row-method:hover{
@@ -216,7 +230,6 @@ h3{
   width: 80%;
   margin: auto;
   text-align: center;
-  padding-top: 50px;
 }
 
 .facilities{
@@ -242,7 +255,7 @@ h3{
   margin: 100px auto;
   background-position: center;
   background-size: 10px;
-  text-align: center;
+  text-align: left;
   padding: 100px 0;
   border-radius: 10px;
 }

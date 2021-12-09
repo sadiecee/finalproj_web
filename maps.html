@@ -7,136 +7,347 @@
       name="viewport"
       content="initial-scale=1,maximum-scale=1,user-scalable=no"
     />
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://js.arcgis.com/4.21/esri/themes/light/main.css">
+
+    <title> Intimate Partner Violence in the US | Web Mapping Final Project</title>
+
+    <link
+      rel="stylesheet"
+      href="style.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://js.arcgis.com/4.21/esri/themes/light/main.css"
+    />
 
     <script src="https://js.arcgis.com/4.21/"></script>
-    <style>
-      html,
-      body,
-      #viewDiv {
-        padding: 0;
-        margin: 0;
-        height: 130%;
-        width: 90%;
-      }
-    </style>
 
     <script>
       require([
         "esri/Map",
         "esri/views/MapView",
+        "esri/layers/MapImageLayer",
+        "esri/layers/GroupLayer",
         "esri/layers/FeatureLayer",
         "esri/widgets/LayerList",
-        "esri/widgets/Swipe",
-        "esri/widgets/Expand",
-        "esri/layers/TileLayer",
-      ], (Map, MapView, FeatureLayer, LayerList, Swipe, Expand, TileLayer) => {
-        const map = new Map({
-          //basemap: "arcgis-dark-gray",
-          zoom: 8,
-          center: [39.8097, -98.555183], // Lebanon where the explosion happened
-
-        });
-
-
-                const l1 = new FeatureLayer({
-                  url: "https://services5.arcgis.com/FKwcDz27wRAj4HUT/arcgis/rest/services/NIBRS/FeatureServer",
-                  //maxScale: 3000
-                });
-                map.add(l1); //here we call the imagery for before the explosion from the ArcGIS tiles cloud
-
-                const l2 = new FeatureLayer({
-                  url: "https://services5.arcgis.com/FKwcDz27wRAj4HUT/arcgis/rest/services/NIBRS_27/FeatureServer",
-                  //maxScale: 3000
-                });
-                map.add(l2); //here we call the imagery for the after the explosion from the ArcGIS tiles cloud
-
-                const l3 = new FeatureLayer({
-                  url: "https://services5.arcgis.com/FKwcDz27wRAj4HUT/arcgis/rest/services/NIBRS_32/FeatureServer",
-                  //maxScale: 3000
-                });
-                map.add(l3); //here we call the imagery for the after the explosion from the ArcGIS tiles cloud
-
-                const view = new MapView({
-                  container: "viewDiv",
-                  map: map,
-                  zoom: 8,
-                  center: [39.8097, -98.555183], // Lebanon where the explosion happened
-                }); //here we create a new map view specifying the initial zoom as well as the min and max zoom
-                // I adapted these parameters based on the properties of the imagery
-
-                // here we create a layerlist and expand widget and add to the view
-                const layerList = new LayerList({
-                  view: view,
-                  zoom: 8,
-                  center: [39.8097, -98.555183], // Lebanon where the explosion happened
-
-                });
-
-                const llExpand = new Expand({
-                  view: view,
-                  content: layerList,
-                  expanded: false
-                });
-                view.ui.add(llExpand, "top-right");
-
-                // here we create a new Swipe widget
-                // const swipe = new Swipe({
-                //   leadingLayers: [after],
-                //   trailingLayers: [before],
-                //   position: 50, // set position of widget to 50% so it's right in the middle of the screen
-                //   view: view
-                // });
-                //
-                // // here we add the widget to the view
-                // view.ui.add(swipe);
-              });
-            </script>
-
-
-    <!-- <script>
-
-      require([
-        "esri/Map",
-        "esri/views/MapView",
-        "esri/layers/FeatureLayer",
-        "esri/widgets/TimeSlider",
         "esri/widgets/Expand",
         "esri/widgets/Legend",
-        "esri/layers/TileLayer",
-        "esri/widgets/LayerList",
-        "esri/widgets/Swipe"
-      ], (Map, MapView, FeatureLayer, TimeSlider, Expand, Legend, TileLayer, LayerList, Swipe) => {
-        const map = new Map({
-          basemap: "satellite"
+        "esri/widgets/Compass",
+        "esri/widgets/ScaleBar"
+      ], (Map, MapView, MapImageLayer, GroupLayer, FeatureLayer, LayerList, Expand, Legend, Compass, ScaleBar) => {
+
+        const Simple06 = new FeatureLayer({
+          url: "https://services5.arcgis.com/FKwcDz27wRAj4HUT/arcgis/rest/services/NIBRS/FeatureServer/3"
         });
 
-        const view = MapView({
+        const Simple07 = new FeatureLayer({
+          url: "https://services5.arcgis.com/FKwcDz27wRAj4HUT/arcgis/rest/services/NIBRS/FeatureServer/4"
+        });
+
+        const Simple08 = new FeatureLayer({
+          url: "https://services5.arcgis.com/FKwcDz27wRAj4HUT/arcgis/rest/services/NIBRS/FeatureServer/5"
+        });
+
+        const Simple09 = new FeatureLayer({
+          url: "https://services5.arcgis.com/FKwcDz27wRAj4HUT/arcgis/rest/services/NIBRS/FeatureServer/6"
+        });
+
+        const Simple10 = new FeatureLayer({
+          url: "https://services5.arcgis.com/FKwcDz27wRAj4HUT/arcgis/rest/services/NIBRS/FeatureServer/7"
+        });
+
+        const Simple11 = new FeatureLayer({
+          url: "https://services5.arcgis.com/FKwcDz27wRAj4HUT/arcgis/rest/services/NIBRS/FeatureServer/8"
+        });
+
+        const Simple12 = new FeatureLayer({
+          url: "https://services5.arcgis.com/FKwcDz27wRAj4HUT/arcgis/rest/services/NIBRS/FeatureServer/9"
+        });
+
+        const Simple13 = new FeatureLayer({
+          url: "https://services5.arcgis.com/FKwcDz27wRAj4HUT/arcgis/rest/services/NIBRS/FeatureServer/10"
+        });
+
+        const Simple14 = new FeatureLayer({
+          url: "https://services5.arcgis.com/FKwcDz27wRAj4HUT/arcgis/rest/services/NIBRS/FeatureServer/11"
+        });
+
+        const Simple15 = new FeatureLayer({
+          url: "https://services5.arcgis.com/FKwcDz27wRAj4HUT/arcgis/rest/services/NIBRS/FeatureServer/12"
+        });
+
+        const Simple16 = new FeatureLayer({
+          url: "https://services5.arcgis.com/FKwcDz27wRAj4HUT/arcgis/rest/services/NIBRS/FeatureServer/13"
+        });
+
+        const Simple17 = new FeatureLayer({
+          url: "https://services5.arcgis.com/FKwcDz27wRAj4HUT/arcgis/rest/services/NIBRS/FeatureServer/14"
+        });
+
+        const Simple18 = new FeatureLayer({
+          url: "https://services5.arcgis.com/FKwcDz27wRAj4HUT/arcgis/rest/services/NIBRS/FeatureServer/15"
+        });
+
+        const Simple19 = new FeatureLayer({
+          url: "https://services5.arcgis.com/FKwcDz27wRAj4HUT/arcgis/rest/services/NIBRS/FeatureServer/16"
+        });
+
+        const Aggravated06 = new FeatureLayer({
+          url: "https://services5.arcgis.com/FKwcDz27wRAj4HUT/arcgis/rest/services/NIBRS_27/FeatureServer/4"
+        });
+
+        const Aggravated07 = new FeatureLayer({
+          url: "https://services5.arcgis.com/FKwcDz27wRAj4HUT/arcgis/rest/services/NIBRS_27/FeatureServer/3"
+        });
+
+        const Aggravated08 = new FeatureLayer({
+          url: "https://services5.arcgis.com/FKwcDz27wRAj4HUT/arcgis/rest/services/NIBRS_27/FeatureServer/5"
+        });
+
+        const Aggravated09 = new FeatureLayer({
+          url: "https://services5.arcgis.com/FKwcDz27wRAj4HUT/arcgis/rest/services/NIBRS_27/FeatureServer/6"
+        });
+
+        const Aggravated10 = new FeatureLayer({
+          url: "https://services5.arcgis.com/FKwcDz27wRAj4HUT/arcgis/rest/services/NIBRS_27/FeatureServer/7"
+        });
+
+        const Aggravated11 = new FeatureLayer({
+          url: "https://services5.arcgis.com/FKwcDz27wRAj4HUT/arcgis/rest/services/NIBRS_27/FeatureServer/8"
+        });
+
+        const Aggravated12 = new FeatureLayer({
+          url: "https://services5.arcgis.com/FKwcDz27wRAj4HUT/arcgis/rest/services/NIBRS_27/FeatureServer/9"
+        });
+
+        const Aggravated13 = new FeatureLayer({
+          url: "https://services5.arcgis.com/FKwcDz27wRAj4HUT/arcgis/rest/services/NIBRS_27/FeatureServer/10"
+        });
+
+        const Aggravated14 = new FeatureLayer({
+          url: "https://services5.arcgis.com/FKwcDz27wRAj4HUT/arcgis/rest/services/NIBRS_27/FeatureServer/11"
+        });
+
+        const Aggravated15 = new FeatureLayer({
+          url: "https://services5.arcgis.com/FKwcDz27wRAj4HUT/arcgis/rest/services/NIBRS_27/FeatureServer/12"
+        });
+
+        const Aggravated16 = new FeatureLayer({
+          url: "https://services5.arcgis.com/FKwcDz27wRAj4HUT/arcgis/rest/services/NIBRS_27/FeatureServer/13"
+        });
+
+        const Aggravated17 = new FeatureLayer({
+          url: "https://services5.arcgis.com/FKwcDz27wRAj4HUT/arcgis/rest/services/NIBRS_27/FeatureServer/14"
+        });
+
+        const Aggravated18 = new FeatureLayer({
+          url: "https://services5.arcgis.com/FKwcDz27wRAj4HUT/arcgis/rest/services/NIBRS_27/FeatureServer/15"
+        });
+
+        const Aggravated19 = new FeatureLayer({
+          url: "https://services5.arcgis.com/FKwcDz27wRAj4HUT/arcgis/rest/services/NIBRS_27/FeatureServer/16"
+        });
+
+        const Homicide06 = new FeatureLayer({
+          url: "https://services5.arcgis.com/FKwcDz27wRAj4HUT/arcgis/rest/services/NIBRS_32/FeatureServer/58"
+        });
+
+        const Homicide07 = new FeatureLayer({
+         url: "https://services5.arcgis.com/FKwcDz27wRAj4HUT/arcgis/rest/services/NIBRS_32/FeatureServer/57"
+        });
+
+        const Homicide08 = new FeatureLayer({
+        url: "https://services5.arcgis.com/FKwcDz27wRAj4HUT/arcgis/rest/services/NIBRS_32/FeatureServer/56"
+        });
+
+        const Homicide09 = new FeatureLayer({
+        url: "https://services5.arcgis.com/FKwcDz27wRAj4HUT/arcgis/rest/services/NIBRS_32/FeatureServer/55"
+        });
+
+        const Homicide10 = new FeatureLayer({
+        url: "https://services5.arcgis.com/FKwcDz27wRAj4HUT/arcgis/rest/services/NIBRS_32/FeatureServer/54"
+        });
+
+        const Homicide11 = new FeatureLayer({
+        url: "https://services5.arcgis.com/FKwcDz27wRAj4HUT/arcgis/rest/services/NIBRS_32/FeatureServer/53"
+        });
+
+        const Homicide12 = new FeatureLayer({
+        url: "https://services5.arcgis.com/FKwcDz27wRAj4HUT/arcgis/rest/services/NIBRS_32/FeatureServer/52"
+        });
+
+        const Homicide13 = new FeatureLayer({
+        url: "https://services5.arcgis.com/FKwcDz27wRAj4HUT/arcgis/rest/services/NIBRS_32/FeatureServer/51"
+        });
+
+        const Homicide14 = new FeatureLayer({
+        url: "https://services5.arcgis.com/FKwcDz27wRAj4HUT/arcgis/rest/services/NIBRS_32/FeatureServer/50"
+        });
+
+        const Homicide15 = new FeatureLayer({
+        url: "https://services5.arcgis.com/FKwcDz27wRAj4HUT/arcgis/rest/services/NIBRS_32/FeatureServer/49"
+        });
+
+        const Homicide16 = new FeatureLayer({
+        url: "https://services5.arcgis.com/FKwcDz27wRAj4HUT/arcgis/rest/services/NIBRS_32/FeatureServer/48"
+        });
+
+        const Homicide17 = new FeatureLayer({
+        url: "https://services5.arcgis.com/FKwcDz27wRAj4HUT/arcgis/rest/services/NIBRS_32/FeatureServer/47"
+        });
+
+        const Homicide18 = new FeatureLayer({
+        url: "https://services5.arcgis.com/FKwcDz27wRAj4HUT/arcgis/rest/services/NIBRS_32/FeatureServer/46"
+        });
+
+        const Homicide19 = new FeatureLayer({
+        url: "https://services5.arcgis.com/FKwcDz27wRAj4HUT/arcgis/rest/services/NIBRS_32/FeatureServer/45"
+        });
+
+        const Total06 = new FeatureLayer({
+          url: "https://services5.arcgis.com/FKwcDz27wRAj4HUT/arcgis/rest/services/NIBRS_Total_Incident_Count/FeatureServer/4"
+        });
+
+        const Total07 = new FeatureLayer({
+         url: "https://services5.arcgis.com/FKwcDz27wRAj4HUT/arcgis/rest/services/NIBRS_Total_Incident_Count/FeatureServer/5"
+        });
+
+        const Total08 = new FeatureLayer({
+        url: "https://services5.arcgis.com/FKwcDz27wRAj4HUT/arcgis/rest/services/NIBRS_Total_Incident_Count/FeatureServer/6"
+        });
+
+        const Total09 = new FeatureLayer({
+        url: "https://services5.arcgis.com/FKwcDz27wRAj4HUT/arcgis/rest/services/NIBRS_Total_Incident_Count/FeatureServer/7"
+        });
+
+        const Total10 = new FeatureLayer({
+        url: "https://services5.arcgis.com/FKwcDz27wRAj4HUT/arcgis/rest/services/NIBRS_Total_Incident_Count/FeatureServer/8"
+        });
+
+        const Total11 = new FeatureLayer({
+        url: "https://services5.arcgis.com/FKwcDz27wRAj4HUT/arcgis/rest/services/NIBRS_Total_Incident_Count/FeatureServer/9"
+        });
+
+        const Total12 = new FeatureLayer({
+        url: "https://services5.arcgis.com/FKwcDz27wRAj4HUT/arcgis/rest/services/NIBRS_Total_Incident_Count/FeatureServer/3"
+        });
+
+        const Total13 = new FeatureLayer({
+        url: "https://services5.arcgis.com/FKwcDz27wRAj4HUT/arcgis/rest/services/NIBRS_Total_Incident_Count/FeatureServer/10"
+        });
+
+        const Total14 = new FeatureLayer({
+        url: "https://services5.arcgis.com/FKwcDz27wRAj4HUT/arcgis/rest/services/NIBRS_Total_Incident_Count/FeatureServer/11"
+        });
+
+        const Total15 = new FeatureLayer({
+        url: "https://services5.arcgis.com/FKwcDz27wRAj4HUT/arcgis/rest/services/NIBRS_Total_Incident_Count/FeatureServer/12"
+        });
+
+        const Total16 = new FeatureLayer({
+        url: "https://services5.arcgis.com/FKwcDz27wRAj4HUT/arcgis/rest/services/NIBRS_Total_Incident_Count/FeatureServer/13"
+        });
+
+        const Total17 = new FeatureLayer({
+        url: "https://services5.arcgis.com/FKwcDz27wRAj4HUT/arcgis/rest/services/NIBRS_Total_Incident_Count/FeatureServer/14"
+        });
+
+        const Total18 = new FeatureLayer({
+        url: "https://services5.arcgis.com/FKwcDz27wRAj4HUT/arcgis/rest/services/NIBRS_Total_Incident_Count/FeatureServer/15"
+        });
+
+        const Total19 = new FeatureLayer({
+        url: "https://services5.arcgis.com/FKwcDz27wRAj4HUT/arcgis/rest/services/NIBRS_Total_Incident_Count/FeatureServer/16"
+        });
+
+        const GroupLayer51 = new GroupLayer({
+          title: "Simple Assault",
+          visible: false,
+          visibilityMode: "exclusive",
+          layers: [Simple19, Simple18, Simple17, Simple16, Simple15, Simple14, Simple13, Simple12, Simple11,
+          Simple10, Simple09, Simple08, Simple07, Simple06]
+        });
+
+        const GroupLayer27 = new GroupLayer({
+          title: "Aggravated Assault",
+          visible: false,
+          visibilityMode: "exclusive",
+          layers: [Aggravated19, Aggravated18, Aggravated17, Aggravated16, Aggravated15, Aggravated14, Aggravated13,
+          Aggravated12, Aggravated11, Aggravated10, Aggravated09, Aggravated08, Aggravated07, Aggravated06]
+        });
+
+        const GroupLayer32 = new GroupLayer({
+          title: "Homicide and Nonnegligent Manslaughter",
+          visible: false,
+          visibilityMode: "exclusive",
+          layers: [Homicide19, Homicide18, Homicide17, Homicide16, Homicide15, Homicide14, Homicide13, Homicide12, Homicide11,
+          Homicide10, Homicide09, Homicide08, Homicide07, Homicide06]
+        });
+
+        const GroupLayerTotal = new GroupLayer({
+          title: "Total Incident Count",
+          visible: true,
+          visibilityMode: "exclusive",
+          layers: [Total19, Total18, Total17, Total16, Total15, Total14, Total13, Total12, Total11,
+          Total10, Total09, Total08, Total07, Total06]
+        });
+
+        const map = new Map({
+          basemap: "dark-gray",
+          layers: [GroupLayer32, GroupLayer27, GroupLayer51, GroupLayerTotal]
+        });
+
+        const view = new MapView({
           container: "viewDiv",
           map: map,
-          zoom: 16,
-          center: [35.51757428008902, 33.9000033914657], // longitude, latitude of the port of Beirut, Lebanon where the explosion happened
+          zoom: 4,
+          center: [-98.57, 39.82],
           constraints: {
             maxZoom: 23,
-            minZoom: 0
+            minZoom: 4
           }
-        }); //here we create a new map view specifying the initial zoom as well as the min and max zoom
-
-
-        // const layer = new FeatureLayer({
-        //   url: "https://services5.arcgis.com/FKwcDz27wRAj4HUT/arcgis/rest/services/NIBRS_2018_COUNT_EXPORT/FeatureServer/42",
-        //   container: "viewDiv"
-        // });
-        // const after = new FeatureLayer({
-        //   url: "https://services5.arcgis.com/FKwcDz27wRAj4HUT/arcgis/rest/services/NIBRS_2018_COUNT_EXPORT/FeatureServer/42",
-        //   maxScale: 3000
-        // });
-        // map.add(after);
       });
-</script>
- -->
+
+        const layerList = new LayerList({
+          view: view
+        });
+
+        const llExpand = new Expand({
+          view: view,
+          content: layerList,
+          expanded: false
+        });
+        view.ui.add(llExpand, "top-right");
+
+        const legend = new Legend({
+          view: view
+        });
+        const legendExpand = new Expand({
+          expandIconClass: "esri-icon-legend",
+          expandTooltip: "Legend",
+          view: view,
+          content: legend,
+          expanded: false
+        });
+        view.ui.add(legendExpand, "top-left");
+
+        const compassWidget = new Compass({
+          view: view
+        });
+        view.ui.add(compassWidget, "top-left");
+
+        const scaleBar = new ScaleBar({
+          view: view,
+          unit: "metric",
+          style: "line" // The scale bar displays both metric and non-metric units.
+        });
+        view.ui.add(scaleBar, "bottom-right");
+      });
+
+    </script>
   </head>
   <body>
     <section class="sub-header">
@@ -146,25 +357,42 @@
           <ul>
             <li><a href="index.html">HOME</a></li>
             <li><a href="maps.html">MAP</a></li>
-            <li><a href="data.html">DATA SOURCES</a></li>
-            <li><a href="methods.html">METHODS</a></li>
+            <li><a href="data.html">DATA AND METHODOLOGY</a></li>
             <li><a href="ref.html">REFERENCES AND ACKNOWLEDGEMENTS</a></li>
             <li><a href="About.html">ABOUT US</a></li>
           </ul>
         </div>
         <i class="fa fa-bars" onclick="showMenu()"></i>
       </nav>
-      <h1>Our Maps</h1>
+      <h1>Intimate Partner Violence in the US</h1>
+      <p id="wordswords"> The CDC defines Intimate Partner Violence as physical
+        violence, sexual violence, stalking, and psychological aggression by a current
+        or former intimate partner (CDC 2021). According to NCADV (2021), on average, nearly
+        20 people per minute are physically abused by an intimate partner in the
+        United States. In a single year, this equates to more than 10 million men and women.
+        Despite the staggering numbers, there is little to no publicly available resources
+        showing what the spatial distribution of this phenomena looks like. In an attempt to
+        help close that gap, this project maps intimate partner violence in the United States
+        at the county level between 2006 and 2019. The map below allows you to visualize the
+        spatial distribution of all incidents that took place between intimate partners on a
+        yearly basis. With the button on the top right corner of the map, you can choose to
+        display incidents of Simple Assault, Aggravated Assault, and Homicide and
+        Nonnegligent Manslaugther from 2006 to 2019.<p>
           <div id="viewDiv"></div>
+    </br>
+          <div>
+            <h1>Analysis and Insights</h1>
+          </br>
+            <h2>What does the spatial distribution of intimate partner violence in the United States look like?</h2>
+            <p>Placeholder Analysis of maps.</p>
+          </br>
+            <h2>What factors can help explain the variation of intimate partner violence across the United States?</h2>
+            <p>Placeholder Analysis of maps.</p>
+          </br>
+            <h2>How does the spatial distribution of intimate partner violence compare to IPV resource availability?</h2>
+            <p>Placeholder Analysis of maps.</p>
+          </div>
     </section>
-    <!---About us content ---------------->
-
-<div>
-    <section class="analysis">
-      <h1>Placeholder for Map title</h1>
-      <p>Placeholder Analysis of maps.</p>
-    </section>
-  </div>
 
 
 
