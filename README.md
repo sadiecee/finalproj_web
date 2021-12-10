@@ -1,5 +1,4 @@
-# Intimate Partner Violence in the United States: An Analysis Using NIBRS Data
-### by Valeria Chavez and Sadie Murray
+# Intimate Partner Violence in the United States: An Analysis Using NIBRS Data### by Valeria Chavez and Sadie Murray
 
 ## Introduction
 The CDC defines Intimate Partner Violence as physical violence, sexual violence, stalking, and psychological aggression by a current or former intimate partner (CDC 2021). According to NCADV (2021), on average, nearly 20 people per minute are physically abused by an intimate partner in the United States. In a single year, this equates to more than 10 million men and women. Despite the staggering numbers, there is little to no publicly available resources showing what the spatial distribution of this phenomena looks like. In an attempt to help close that gap, this project maps intimate partner violence in the United States at the county level between 2006 and 2019. We looked at reported incidents of simple assault, aggravated assault, and homicide and nonnegligent manslaughter in 46 states and the District of Columbia. Our findings give us a better understanding of the spatial distribution of intimate partner violence in the United States and contribute to the public awareness around this issue.
