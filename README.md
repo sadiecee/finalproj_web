@@ -13,7 +13,7 @@ A limitation of the NIBRS data is that incidents are reported on a voluntary bas
 ### Methodology
 This project relied on a multitude of technologies including Python, ArcGIS Pro, ArcGIS Online, the ArcGIS JavaScript API, and HTML. Below you can find a general framework of the  main steps we used to conduct our analysis and produce this web application.
 
-![This is an image]("Images/flowchart.png")
+![This is an image](https://github.com/sadiecee/finalproj_web/blob/master/Images/flowchart.png)
 
 ##### Python
 We built a Python script that allowed us to extract all incidents between 2006 and 2019 where the victim and the offender were or had been intimate partners. We subset the data to focus exclusively on simple assault, aggravated assault, and murder and nonnegligent manslaughter. In order to be able to map the incidents at the county level, we used the county and state information provided and assigned each entry their corresponding FIPS code. We then exported the subset into csv files corresponding to each year between 2006 and 2019. A copy of the script is available on the Scripts folder of this Repository.
