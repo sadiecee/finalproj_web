@@ -11,6 +11,19 @@ This project relied on the FBI's NIBRS dataset. The National Incident-Based Repo
 A limitation of the NIBRS data is that incidents are reported on a voluntary basis by law enforcement offices across the country which leads to significant gaps in the availability of the data. States such as New York, Florida, and California do not report incidents to NIBRS at all and some states started doing so only in 2019. The absence of data in states with large populations is a significant limitation given that it considerably skews the ranges of the data. It is worth noting that, despite the 2020 NIBRS data becoming available on December 8th, 2021, this project included data as early as 2019.
 
 ### Methodology
+This project relied on a multitude of technologies including Python, ArcGIS Pro, ArcGIS Online, the ArcGIS JavaScript API, and HTML. Below you can find a general framework of the  main steps we used to conduct our analysis and produce this web application.
+
+![This is an image]("Images/flowchart.png")
+
+##### Python
+We built a Python script that allowed us to extract all incidents between 2006 and 2019 where the victim and the offender were or had been intimate partners. We subset the data to focus exclusively on simple assault, aggravated assault, and murder and nonnegligent manslaughter. In order to be able to map the incidents at the county level, we used the county and state information provided and assigned each entry their corresponding FIPS code. We then exported the subset into csv files corresponding to each year between 2006 and 2019. A copy of the script is available on the Scripts folder of this Repository.
+
+##### ArcGIS
+This project relied heavily on ESRI products, particularly ArcGIS Pro, ArcGIS Online, and the ArcGIS JavaScript API. Once we were done with the data processing in Python, we imported the data into ArcGIS Pro and used the FIPS codes to join it to a shapefile of all US counties. We exported the joined layers as Web Layers onto ArcGIS Online. We then incorporated all layers into our web application using the ArcGIS JavaScript API which also allowed us to incorporate a series of widgets into our map.
+
+##### HTML
+We built this web application using the html and css styling skills we learned throughout the semester. We aimed for a minimalist style that clearly communicated our message. We relied on the ArcGIS JavaScript API for all map related functionality as well as some local JavaScript for the website's functionality. The integration between our html files and the ArcGIS JavaScript API were notably successful and allowed us to provide a better user experience.
+
 
 
 ## Roles and Responsibilities
