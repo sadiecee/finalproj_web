@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://js.arcgis.com/4.21/esri/themes/light/main.css">
+    <title> Intimate Partner Violence in the US | Web Mapping Final Project</title>
   </head>
   <body>
     <section class="sub-header">
@@ -16,7 +17,6 @@
             <li><a href="index.html">HOME</a></li>
             <li><a href="maps.html">MAP</a></li>
             <li><a href="data.html">DATA AND METHODOLOGY</a></li>
-            <li><a href="ref.html">REFERENCES AND ACKNOWLEDGEMENTS</a></li>
             <li><a href="About.html">ABOUT US</a></li>
           </ul>
         </div>
@@ -46,7 +46,9 @@
         our analysis and produce this web application.
       </p>
     </br>
+  </br>
 </section>
+</br>
 </br>
     <section class="methods">
         <div class="row">
@@ -54,12 +56,10 @@
             <h2 style="color: #000000">Python</h2>
             <p>We built a Python script that allowed us to extract all incidents between
             2006 and 2019 where the victim and the offender were or had been intimate partners.
-            This corresponded to three relationship IDs: (3) boyfriend/girlfriend, (21) spouse,
-            and (26) ex-spouse. We then subset the data even further to focus exclusively on
-            incidents of three offense IDs: (51) simple assault, (27) aggravated assault, and
-            (32) homicide and nonnegligent manslaughter. In order to map the incidents we
-            used FIPS codes as geographic references to map the incidents at the county level.
-            This was the smallest possible unit of analysis using NIBRS data. We then exported the subset into csv
+            We subset the data to focus exclusively on simple assault, aggravated assault, and
+            homicide and nonnegligent manslaughter. In order to be able to map the incidents at
+            the county level, we used the county and state information provided and assigned each
+            entry their corresponding FIPS code. We then exported the subset into csv
             files corresponding to each year between 2006 and 2019.</p>
           </div>
           <div class="row-method">
@@ -69,14 +69,16 @@
             imported the data into ArcGIS Pro and used the FIPS codes to join it to a shpaefile of
             all US counties. We exported the joined layers as Web Layers onto ArcGIS Online. We then
             incorporated all layers into our web application using the ArcGIS JavaScript API which
-            also allowed us to incorporate a series of widgets into our web map.</p>
+            also allowed us to incorporate a series of widgets into our map.</p>
           </div>
           <div class="row-method">
             <h2 style="color: #000000">HTML</h2>
-            <p>We built this web application using html and css styling. We aimed
+            <p>We built this web application using the html and css styling skills we learned throughout the semester. We aimed
                for a minimalist style that clearly communicated our message. We relied on the
             ArcGIS JavaScript API for all map related functionality as well as some local
-            JavaScript for the website's functionality.</p>
+            JavaScript for the website's functionality. The integration between our html files
+            and the ArcGIS JavaScript API were notably successful and allowed us to provide a
+            better user experience.</p>
           </div>
         </div>
 
