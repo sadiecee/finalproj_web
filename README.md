@@ -1,1 +1,17 @@
 # Intimate Partner Violence in the United States: An Analysis Using NIBRS Data
+### by Valeria Chavez and Sadie Murray
+
+## Introduction
+The CDC defines Intimate Partner Violence as physical violence, sexual violence, stalking, and psychological aggression by a current or former intimate partner (CDC 2021). According to NCADV (2021), on average, nearly 20 people per minute are physically abused by an intimate partner in the United States. In a single year, this equates to more than 10 million men and women. Despite the staggering numbers, there is little to no publicly available resources showing what the spatial distribution of this phenomena looks like. In an attempt to help close that gap, this project maps intimate partner violence in the United States at the county level between 2006 and 2019. We looked at reported incidents of simple assault, aggravated assault, and homicide and nonnegligent manslaughter in 46 states and the District of Columbia. Our findings give us a better understanding of the spatial distribution of intimate partner violence in the United States and contribute to the public awareness around this issue.
+
+## Data and Methodology
+### NIBRS
+This project relied on the FBI's NIBRS dataset. The National Incident-Based Reporting System (NIBRS) is an incident-based reporting system used by law enforcement agencies in the United States for the collection and reporting of data on criminal offenses. This dataset provides incredibly detailed information about the victims and the offenders (including race, ethnicity, age, sex), weapon, circumstances, and most importantly the ~relationship~ between the victim and the offender. Due to the lack of data exclusively about intimate partner violence at the national level, we relied on a subset of NIBRS data for our analysis. Using Python, we selected the incidents that had one of the following relationship IDs: (3) boyfriend/girlfriend, (21) spouse, (26) ex-spouse. We then narrowed this down further by selecting the three types of offenses: (51) simple assault, (27) aggravated assault, and (32) murder and nonnegligent manslaugther.
+
+A limitation of the NIBRS data is that incidents are reported on a voluntary basis by law enforcement offices across the country which leads to significant gaps in the availability of the data. States such as New York, Florida, and California do not report incidents to NIBRS at all and some states started doing so only in 2019. The absence of data in states with large populations is a significant limitation given that it considerably skews the ranges of the data. It is worth noting that, despite the 2020 NIBRS data becoming available on December 8th, 2021, this project included data as early as 2019.
+
+### Methodology
+
+
+## Roles and Responsibilities
+Having worked together for about 3-years now, Valeria and Sadie have a great working dynamic and so the responsibilities were pretty evenly distributed. Valeria worked on the acquisition, cleaning, and processing of the data in Python as well as the creation of Web Feature Layers in ArcGIS Pro. She incorporated the layers onto the website and added a series of widgets to the final map using the ArcGIS JavaScript API. Sadie built the full structure of the website using html and JavaScript ensuring the functionality of all the buttons and the interconnectedness of the layers. We both contributed to the aesthetic choices and the written content on the website.
