@@ -10,7 +10,7 @@ This project relied on the FBI's NIBRS dataset. The National Incident-Based Repo
 
 A limitation of the NIBRS data is that incidents are reported on a voluntary basis by law enforcement offices across the country which leads to significant gaps in the availability of the data. States such as New York, Florida, and California do not report incidents to NIBRS at all and some states started doing so only in 2019. The absence of data in states with large populations is a significant limitation given that it considerably skews the ranges of the data. It is worth noting that, despite the 2020 NIBRS data becoming available on December 8th, 2021, this project included data as early as 2019.
 
-### Other Data
+#### Other Data
 We retrieved the County Shapefile from the Census Bureau's GIS data website. We joined the NIBRS data to the shapefiles using ArcGIS Pro. We also used the Dark Grey basemap that is freely available through the ArcGIS JavaScript API.
 
 ### Methodology
@@ -32,9 +32,14 @@ While we explored the ArcGIS JavaScript API in class and the widgets during one 
 
 ## Results
 
-![This is an image](https://github.com/sadiecee/finalproj_web/blob/master/Images/ipv_map.png)
+![This is an image](https://github.com/sadiecee/finalproj_web/blob/master/Images/ipv_map.PNG)
 
 Comparing the final result to the original proposal, the project was a great success. We built a web application that allowed users to visualize the spatial distribution of intimate partner violence in the United States from 2006 to 2019. We created several different pages using HTML that were interconnected through the effective use of JavaScript. We incorporated a series of widgets to our map which made the user experience more interactive and overall better. We unfortunately were not able to sort out how to get insights on click for each of the counties which was something that we really wanted to do. In general, we ended up leaning more toward the functional and aesthetic aspect of the web application rather than the analysis of the data.
+
+## References
+* CDC. (2021). Preventing Intimate Partner Violence. https://www.cdc.gov/violenceprevention/intimatepartnerviolence/fastfact.html
+* NCADV. (2021). Statistics. https://ncadv.org/STATISTICS
+* FBI. National Incident-Based Reporting System (NIBRS). https://www.fbi.gov/services/cjis/ucr/nibrs
 
 ## Appendix: Roles and Responsibilities
 Having worked together for about 3-years now, Valeria and Sadie have a great working dynamic and so the responsibilities were pretty evenly distributed. Valeria worked on the acquisition, cleaning, and processing of the data in Python as well as the creation of Web Feature Layers in ArcGIS Pro. She incorporated the layers onto the website and added a series of widgets to the final map using the ArcGIS JavaScript API. Sadie built the full structure of the website using html and JavaScript ensuring the functionality of all the buttons and the interconnectedness of the layers. We both contributed to the aesthetic choices and the written content on the website.
